@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="card shadow mb-4">                   
+    <div class="card-body"> 
+     <table class="table table-striped">
+        <tr> <th>Id</th><th>Modele</th> <th>Prix</th> <th>Puissance</th>  <th>Date Fabrication</th> <th>Marque</th></tr>          
+         @for (moto of motos; track moto.idMoto)
+         {
+          
+          <tbody >
+            <tr >
+                <td>{{moto.idMoto}}</td>
+               <td>{{moto.modeleMoto}}</td>
+               <td>{{moto.prixMoto}}</td>
+               <td>{{moto.puissanceMoto}}</td>
+               <td>{{moto.dateFabrication | date:'dd/MM/yyyy'}}</td>
+
+               @if(moto.marque){ 
+                <td>{{moto.marque.nomMar}}</td>  }
+               @else {
+                <td>PAS DE MARQUE</td>
+                }
+               
+               @if(authService.isAdmin()) {
+                 <td><a class="btn btn-danger" (click)="supprimerMoto(moto)">Supprimer</a></td> 
+                 <td><a class="btn btn-success" [routerLink]="['/updateMoto',moto.idMoto]">Modifier</a></td>
+                }
+             </tr>                                    
+          </tbody>
+         }   
+      
+
+    </table>
+    </div>
+  </div>
+</div> 
