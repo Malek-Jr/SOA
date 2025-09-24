@@ -6,11 +6,10 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-motos',
-  standalone: true,
-  imports: [CommonModule,RouterLink],
-  templateUrl: './motos.component.html',
-  styleUrl: './motos.component.css'
+    selector: 'app-motos',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './motos.component.html',
+    styleUrl: './motos.component.css'
 })
 export class MotosComponent implements OnInit  {
   motos! : Moto[]; //un tableau de Produit

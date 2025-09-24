@@ -1,32 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { AuthService } from './services/auth.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, effect, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import Keycloak, { KeycloakProfile } from 'keycloak-js';
 
+
+import {
+HasRolesDirective,
+KEYCLOAK_EVENT_SIGNAL,
+KeycloakEventType,
+typeEventArgs,
+ReadyArgs
+} from 'keycloak-angular';
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterLink,RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+selector: 'app-root',
+imports: [RouterOutlet,RouterLink],
+templateUrl: './app.component.html',
+styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  title = 'Mes Motos';
-  constructor (public authService: AuthService,
-              private router: Router,
-  ) {}
-
-  ngOnInit () {
-    this.authService.loadToken();
-    if (this.authService.getToken()==null ||  this.authService.isTokenExpired())
-          this.router.navigate(['/login']);
-
-  }
-  
-
-  onLogout(){
-    console.log("logout-------1");
-    this.authService.logout();
-  }
-
-
+export class AppComponent {
+public profile? : KeycloakProfile;
+authenticated = false;
+keycloakStatus: string | undefined;
+private readonly keycloak = inject(Keycloak);
+private readonly keycloakSignal = inject(KEYCLOAK_EVENT_SIGNAL);
+constructor() {
+effect(() => {
+const keycloakEvent = this.keycloakSignal();
+this.keycloakStatus = keycloakEvent.type;
+if (keycloakEvent.type === KeycloakEventType.Ready) {
+this.authenticated = typeEventArgs<ReadyArgs>(keycloakEvent.args);
 }
+if (keycloakEvent.type === KeycloakEventType.AuthLogout) {
+this.authenticated = false;
+}
+});
+}
+login() {
+this.keycloak.login();
+}
+logout() {
+this.keycloak.logout();
+}}

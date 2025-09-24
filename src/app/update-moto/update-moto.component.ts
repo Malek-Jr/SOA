@@ -7,11 +7,10 @@ import { CommonModule } from '@angular/common';
 import { Marque } from '../model/marque.model';
 
 @Component({
-  selector: 'app-update-moto',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './update-moto.component.html',
-  styles: ``,
+    selector: 'app-update-moto',
+    imports: [FormsModule, CommonModule],
+    templateUrl: './update-moto.component.html',
+    styles: ``
 })
 export class UpdateMotoComponent implements OnInit {
   currentMoto = new Moto();

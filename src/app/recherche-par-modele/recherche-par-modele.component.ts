@@ -6,11 +6,10 @@ import { MotoService } from '../services/moto.service';
 import { SearchFilterPipe } from '../search-filter.pipe';
 
 @Component({
-  selector: 'app-recherche-par-modele',
-  standalone: true,
-  imports: [FormsModule, CommonModule,SearchFilterPipe],
-  templateUrl: './recherche-par-modele.component.html',
-  styles: ``
+    selector: 'app-recherche-par-modele',
+    imports: [FormsModule, CommonModule, SearchFilterPipe],
+    templateUrl: './recherche-par-modele.component.html',
+    styles: ``
 })
 
 export class RechercheParModeleComponent implements OnInit {

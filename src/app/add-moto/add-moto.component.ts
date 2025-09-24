@@ -7,10 +7,9 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-add-moto',
-  standalone: true,
-  imports: [CommonModule,FormsModule],
-  templateUrl: './add-moto.component.html'
+    selector: 'app-add-moto',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './add-moto.component.html'
 })
 export class AddMotoComponent implements OnInit {
 

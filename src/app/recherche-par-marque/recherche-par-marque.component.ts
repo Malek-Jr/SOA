@@ -7,11 +7,10 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-recherche-par-marque',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './recherche-par-marque.component.html',
-  styles: ``
+    selector: 'app-recherche-par-marque',
+    imports: [FormsModule, CommonModule],
+    templateUrl: './recherche-par-marque.component.html',
+    styles: ``
 })
 export class RechercheParMarqueComponent  implements OnInit{
 

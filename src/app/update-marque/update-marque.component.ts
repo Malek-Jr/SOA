@@ -3,11 +3,10 @@ import { Marque } from '../model/marque.model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-update-marque',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './update-marque.component.html',
-  styles: ``
+    selector: 'app-update-marque',
+    imports: [FormsModule],
+    templateUrl: './update-marque.component.html',
+    styles: ``
 })
 export class UpdateMarqueComponent implements OnInit {
 

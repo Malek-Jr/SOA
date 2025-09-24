@@ -5,11 +5,10 @@ import { AuthService } from '../services/auth.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-verif-email',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './verif-email.component.html',
-  styleUrl: './verif-email.component.css',
+    selector: 'app-verif-email',
+    imports: [FormsModule],
+    templateUrl: './verif-email.component.html',
+    styleUrl: './verif-email.component.css'
 })
 export class VerifEmailComponent implements OnInit {
   code: string = '';

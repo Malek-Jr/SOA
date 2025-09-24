@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { UpdateMarqueComponent } from '../update-marque/update-marque.component';
 
 @Component({
-  selector: 'app-liste-marques',
-  standalone: true,
-  imports: [CommonModule,UpdateMarqueComponent],
-  templateUrl: './liste-marques.component.html',
-  styles: ``
+    selector: 'app-liste-marques',
+    imports: [CommonModule, UpdateMarqueComponent],
+    templateUrl: './liste-marques.component.html',
+    styles: ``
 })
 export class ListeMarquesComponent implements OnInit {
   marques! : Marque[];
