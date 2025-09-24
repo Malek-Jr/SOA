@@ -1,6 +1,8 @@
 package com.malek.motos.restcontrollers;
 
 import java.util.List;
+
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +24,12 @@ import com.malek.motos.service.MotoService;
 public class MotoRESTController {
 	@Autowired
 	MotoService produitService;
+	@GetMapping("/auth")
+	Authentication getAuth(Authentication auth)
+	{
+	return auth;
+	}
+
 	
 	@RequestMapping(path="all",method =RequestMethod.GET)
 	public List<Moto> getAllMotos() {
